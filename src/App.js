@@ -96,9 +96,9 @@ function App() {
       </header>
       <article className={rowStyle + " min-h-screen relative items-center bg-black text-white bg-cover bg-fixed"}
        style={{backgroundImage: `url(${skyscraper})`}}>
-        <div className="w-1/2 order-1">
+        <div className="w-full lg:w-1/2 order-1">
           <h1 className="mb-8 text-7xl mb-4 font-extrabold drop-shadow-md">Infrastructure Creates Opportunity</h1>
-          <p className="w-2/3 drop-shadow-sm">We believe in improving services and creating new streams of revenue to sustain our cities</p>
+          <p className="w-3/4 lg:w-2/3 drop-shadow-sm">We believe in improving services and creating new streams of revenue to sustain our cities</p>
         </div>
       </article>
       <section id="about_us" className={rowStyle + ' min-h-screen'}>
