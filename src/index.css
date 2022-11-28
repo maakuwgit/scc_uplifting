@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+hr {
+  height: 2px;
+  border: none;
+  margin-left: auto;
+  margin-right: auto;
+}
 [data-accordion] dt + dd {
   height: 0;
   overflow: hidden;
@@ -12,22 +18,73 @@
   padding-bottom: 1rem;
 }
 
-[data-contact]:hover {
-  border-color: transparent;
-  box-shadow: 0 1rem 0.9375rem 0 rgb(0 0 0 / 33%);
-  cursor: pointer;
-  transform: scale(1.125);
+[data-cross] li {
+  min-height: 15vw;
 }
 
-[data-contact]:hover button {
-  color: black;
-  background-color: rgb(181 170 72);
+[data-cross]:after, 
+[data-cross]:before {
+  position:absolute;
+  content: '';
 }
 
-[data-slide]:hover {
-  box-shadow: 0 1rem 0.9375rem 0 rgb(0 0 0 / 33%);
-  cursor: pointer;
-  transform: scale(1.125);
+[data-cross]:after {
+  width: 6px;
+  height: 6px;
+  background-color: white;
+  left: calc(50% - 3px);
+  top: calc(50% - 3px);
+  border-radius:100%;
+}
+
+[data-cross]:before {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: solid 1px white;
+  left: calc(50% - 0.75rem);
+  top: calc(50% - 0.75rem);
+  transform: rotate(45deg)
+}
+
+[data-cross] li {
+  padding-right: 2rem;
+  border-right: 1px solid white;
+  border-bottom: 1px solid white;
+}
+
+[data-cross] li:last-child, 
+[data-cross] li:nth-child(4n-1) {
+  border-bottom:none;
+}
+
+[data-cross] li:last-child, 
+[data-cross] li:nth-child(3n-1) {
+  border-right:none;
+  padding-left: 2rem;
+  padding-right: 0;
+}
+
+[data-slide] img {
+  min-height: 50vw;
+}
+
+.bg-chocolate-gradient {
+  background: linear-gradient(180deg, #412B23 0%, #29231D 100%);
+}
+
+@media only screen and (min-width:48em) {
+  [data-slide] figcaption *:not(h4):not(hr) {
+    opacity:0;
+  }
+  [data-slide] img {
+    min-height: 66vh;
+  }
+  [data-slide]:hover figcaption * {
+    opacity: 1;
+  }
+  [data-cross] li {
+    min-height: 10vw;
+  }
 }
 
 @layer base {
