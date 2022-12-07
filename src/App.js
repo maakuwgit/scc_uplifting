@@ -9,33 +9,45 @@ import skyscraper from './office-building-skyscrapers-with-room-for-text-picjumb
 function App() {
   const rowStyle    = "flex flex-wrap h-auto w-full"
   const conStyle    = "py-8 md:py-16 px-4 md:px-12 xl:px-24"
-  const slideStyle  = "p-2 md:p-4 mb-4 md:mb-auto"
+  const fDdStyle    = "order-2 text-gold"
+  const fDtStyle    = "order-1 font-semibold mb-1 md:mb-2"
+  const fLinkStyle  = "py-1 md:py-2 pr-3 uppercase text-white font-bold"
+  const naStyle     = "p-1 md:p-2 text-sm"
+  const slideStyle  = "p-2 md:p-4 mb-4 md:mb-auto cursor-pointer"
 
   const makeHeading = (copy) => {
-    return <h3 className="mb-2 md:mb-5 text-2xl md:text-3xl lg:text-5xl font-extrabold text-white">{copy}</h3>
+    return <h3 className="mb-2 md:mb-6 text-2xl md:text-3xl lg:text-5xl font-extrabold text-white">{copy}</h3>
   }
 
   const makeSubheading = (copy) => {
-    return <h3 className="mb-2 md:mb-5 text-xl md:text-2xl lg:text-4xl font-semibold text-white">{copy}</h3>
+    return <h3 className="mb-2 md:mb-5 text-xl md:text-2xl lg:text-4xl leading-tight md:leading-tight lg:leading-tight font-semibold text-white">{copy}</h3>
   }
 
   const makeEyebrow = (copy) => {
     return <h2 className="text-xl md:text-2xl lg:text-4xl font-extrabold text-white">{copy}</h2>
   }
 
-  const makeSlide = (img,time,time_str,h,p,c0="#542825",c1="rgba(27, 40, 55, 0.84) 100%)",c2="hsla(8, 27%, 59%, 1)",alt="") => {
+  const makeSlide = (img,h,c0="#542825",c1="rgba(27, 40, 55, 0.84)",c2="hsla(8, 27%, 59%, 1)",alt="") => {
     return (
       <>
         <figure className="relative h-full w-full" style={{
-          backgroundImage: `linear-gradient(180deg, ${c0} 0%, ${c1} 100%, url(${img})`,
-          backgroundSize: 'cover, cover, cover', backgroundPosition: 'center, center, center', backgroundRepeat: 'no-repeat, no-repeat, no-repeat'
+          backgroundImage: `linear-gradient(180deg, ${c0} 0%, ${c1} 100%), url(${img})`,
+          backgroundSize: 'cover, cover', backgroundPosition: 'center, center', backgroundRepeat: 'no-repeat, no-repeat'
+        }} onMouseEnter={(event) => {
+          event.target.style.backgroundImage =`url(${img})`
+          event.target.style.backgroundSize = 'cover'
+          event.target.style.backgroundPosition = 'center'
+          event.target.style.backgroundRepeat = 'no-repeat'
+        }} onMouseLeave={(event) => {
+          event.target.style.backgroundImage = `linear-gradient(180deg, ${c0} 0%, ${c1} 100%), url(${img})`
+          event.target.style.backgroundSize = 'cover, cover'
+          event.target.style.backgroundPosition = 'center, center'
+          event.target.style.backgroundRepeat = 'no-repeat, no-repeat'
         }}>
           <img alt={alt} src={img} className="w-full h-auto invisible"/>
-          <figcaption className="absolute top-0 left-0 p-4 md:p-8 lg:p-16 text-center">
+          <figcaption className="pointer-events-none absolute top-0 left-0 w-full p-4 md:p-8 lg:p-16 text-center">
             <h4 className="w-full w-1/2 md:mb-2 mx-auto text-lg font-semibold" style={{color:c2}}>{h}</h4>
             <hr className="w-20 mb-12" style={{backgroundColor:c2}}/>
-            <time className="text-gold" dateTime={time}>{time_str}</time>
-            <p className="pb-2 md:pb-4 text-xs md:text-sm text-white">{p}</p>
           </figcaption>
         </figure>
       </>
@@ -47,11 +59,11 @@ function App() {
       <>
         <dt className="flex items-center justify-between cursor-pointer py-4" onClick={toggleAccordion}>
           {title}
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <use xlinkHref="#icon__arrow--right"/>
+          <svg className="w-4 h-4" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.8536 4.35355C15.0488 4.15829 15.0488 3.84171 14.8536 3.64645L11.6716 0.464466C11.4763 0.269204 11.1597 0.269204 10.9645 0.464466C10.7692 0.659728 10.7692 0.976311 10.9645 1.17157L13.7929 4L10.9645 6.82843C10.7692 7.02369 10.7692 7.34027 10.9645 7.53553C11.1597 7.7308 11.4763 7.7308 11.6716 7.53553L14.8536 4.35355ZM0.5 4.5H14.5V3.5H0.5V4.5Z" fill="white"/>
           </svg>
         </dt>
-        <dd className="border-b-2 border-white text-sm">{desc}</dd>
+        <dd className="border-b border-chocolate-100 text-sm">{desc}</dd>
       </>
     )
   }
@@ -77,8 +89,8 @@ function App() {
   const makeTout = (title, description) => {
     return (
       <>
-        <dt data-tout className="text-chocolate-300 md:order-1 mt-8 md:mt-auto">{title}</dt>
-        <dd className="text-white md:order-2 text-sm md:text-base">
+        <dt data-tout className="text-chocolate-300 md:order-1 mt-8 md:mt-auto mb-2 md:mb-4 font-semibold">{title}</dt>
+        <dd className="text-neutral-300 md:order-2 text-sm md:text-base">
           <p>{description}</p>
         </dd>
       </>
@@ -105,10 +117,10 @@ function App() {
           <figcaption className="uppercase text-white ml-4 lg:ml-12">SCC Uplifting</figcaption>
         </figure>
         <nav className="hidden md:flex flex-nowrap space-x-2 md:space-x-4 lg:space-x-8 text-gold">
-          <a href="#about_us" className="p-1 md:p-2">Mission</a>
-          <a href="#partners" className="p-1 md:p-2">Partners</a>
-          <a href="#portfolio" className="p-1 md:p-2">Portfolio</a>
-          <a href="#contact" className="p-1 md:p-2">Contact</a>
+          <a href="#mission" className={naStyle}>About</a>
+          <a href="#portfolio" className={naStyle}>Portfolio</a>
+          <a href="#case_studies" className={naStyle}>Case Studies</a>
+          <a href="#footer" className={naStyle}>Contact</a>
         </nav>
       </header>
       <article className={rowStyle + " " + conStyle + " pt-24 md:min-h-screen relative items-center bg-black text-white bg-cover bg-fixed bg-bottom bg-right"}
@@ -119,8 +131,9 @@ function App() {
         backgroundPosition: 'bottom right'
       }}>
         <div className="w-full p-8 sm:px-16 sm:py-24 md:p-0">
-          <h1 className="mb-4 md:mb-8 text-3xl md:text-5xl lg:text-6xl mb-2 md:mb-4 font-extrabold drop-shadow-md">Infrastructure Creates Opportunity</h1>
-          <p className="drop-shadow-sm text-xl md:text-3xl md:text-4xl">We believe in improving services and creating new streams of revenue to sustain our cities</p>
+          <h1 className="mb-4 md:mb-8 text-3xl md:text-4xl lg:text-5xl mb-2 md:mb-4 font-extrabold drop-shadow-md">Infrastructure Creates Opportunity</h1>
+          <hr className="w-12 lg:w-44 h-1 bg-teal-hero ml-0 mb-4 md:mb-8"/>
+          <p className="w-full md:w-2/3 drop-shadow-sm text-xl md:text-2xl">We believe in improving services and creating new streams of revenue to sustain our cities</p>
         </div>
       </article>
       <section id="portfolio" className={rowStyle + " " + conStyle + " flex-wrap"}>
@@ -128,28 +141,26 @@ function App() {
           { makeEyebrow('Our Portfolio')}
           { makeHeading('Our Recent Work')}
           <hr className="w-12 lg:w-28 bg-teal md:-mt-3 mb-2 md:mb-5"/>
-          <p className="text-neutral-400 text-sm md:text-base">Sed finibus rutrum leo vitae congue. Sed nec erat convallis, convallis nulla a, placerat ipsum. Nunc posuere leo non justo lacinia, sed feugiat nisi commodo. Proin vulputate risus vitae quam viverra vestibulum ut a lacus.</p>
+          <p className="text-neutral-400 text-sm md:text-base">Sed&nbsp;finibus rutrum leo vitae congue. Sed nec erat convallis, convallis nulla a, placerat ipsum. Nunc posuere leo non justo lacinia, sed feugiat nisi commodo. Proin vulputate risus vitae quam viverra vestibulum ut a lacus.</p>
         </div>
         <ol className="grid sm:grid-cols-2 md:grid-cols-3 gap-2 md:gap-4 min-w-full md:-mx-4">
           <li data-slide className={slideStyle}>
             { makeSlide(redBuilding,
-              "2021-10",'Fall 2021 - Spring 2022',
-              "Dennis Brew Fire Station","Lorem ipsum sin dolor amin set aqui lanis tet senim silla"
+              "Dennis Brew Fire Station"
             )}
           </li>
           <li data-slide className={slideStyle}>
             { makeSlide(couches, 
-              "2021-10", 
-              'Fall 2021 - Spring 2022',"Project #2 No Name Yet","Lorem ipsum sin dolor amin set aqui lanis tet senim silla",
+              "Project #2 Unnamed",
               '#26443E', 'rgba(27, 42, 73, 0.58)','hsla(177, 26%, 55%, 1)')}
           </li>
           <li data-slide className={slideStyle + " block sm:hidden md:block"}>
             { makeSlide(entryway, 
-              "2021-10",'Fall 2021 - Spring 2022',"Project #3 No Name Yet","Lorem ipsum sin dolor amin set aqui lanis tet senim silla",
+              "Project #3 Unnamed",
               '#203837', 'rgba(44, 28, 28, 0.45)','hsla(177, 26%, 55%, 1)')}
           </li>
         </ol>
-        <div className="flex flex-wrap md:flex-nowrap justify-between order-2 pt-8 md:pt-16 gap-4 md:gap-24">
+        <div id="mission" className="flex flex-wrap md:flex-nowrap justify-between order-2 pt-8 md:pt-16 gap-4 md:gap-24">
           <div className="w-full md:w-2/5 md:pr-24">
             { makeSubheading('Improving Underserved Communities')}
             <p className="text-neutral-400 text-sm md:text-base">With over 20 years of experience in construction and development, we are one team, driven to uplift the community and make it better.</p>
@@ -162,7 +173,7 @@ function App() {
           </dl>
         </div>
       </section>
-      <section id="about_us" className={rowStyle + '  md:flex-nowrap min-h-screen bg-chocolate'}>
+      <section id="case_studies" className={rowStyle + '  md:flex-nowrap min-h-screen bg-chocolate'}>
         <div className="w-full md:w-1/2 order-2 px-4 pt-8 pb-0 md:p-16 bg-chocolate-gradient">
           { makeSubheading('This is Where We Put Our Case Study Which Talks About the Project')}
           <p className="text-neutral-400 text-sm md:text-base">Cras in felis eu nunc efficitur bibendum. Praesent tortor purus, efficitur non ultricies sed, accumsan in elit. Suspendisse rhoncus mauris at turpis interdum, in varius arcu tempor.</p>
@@ -182,35 +193,39 @@ function App() {
           </div>
         </picture>
       </section>
-      <section id="contact" className={rowStyle + " " + conStyle + " text-center items-center justify-center"}>
+      <section id="process" className={rowStyle + " " + conStyle + " text-center items-center justify-center"}>
         <div className="w-full text-white text-center">
           { makeHeading('This is How We Work')}
         </div>
-        <dl className="w-full grid md:grid-cols-3 gap-x-24 -mt-8 md:mt-auto">
+        <dl data-touts className="w-full grid md:grid-cols-3 gap-x-24 -mt-8 md:mt-auto">
           { makeTout('We are accessible',"Team Members are available to speak about goals for your city")}
           { makeTout('We offer flexible plans',"Make your first payment two years after project completion")}
           { makeTout('We work with you',"Improving first and second year revenue, to make repayment easy!")}
         </dl>
       </section>
-      <footer className={rowStyle + " " + conStyle + " flex-wrap bg-chocolate py-4 md:py-8"}>
+      <footer id="footer" className={rowStyle + " " + conStyle + " flex-wrap bg-chocolate py-4 md:py-8"}>
         <div className="flex flex-wrap md:flex-nowrap items-center justify-between w-full">
           <figure className="w-24 md:w-48 h-auto text-gold-1/2 mx-auto mb-4 md:ml-0 md:mb-auto">
             <img alt="" src={logo_stacked}/>
           </figure>  
           <div className="w-full md:w-3/4">
-            <nav className="flex justify-center md:justify-start items-center space-x-2 md:space-x-4 lg:space-x-8 mb-4 md:mb-auto text-gold">
-              <a href="#about_us" className="p-1 md:p-2">Mission</a>
-              <a href="#partners" className="p-1 md:p-2">Partners</a>
-              <a href="#portfolio" className="p-1 md:p-2">Portfolio</a>
-              <a href="#contact" className="p-1 md:p-2">Contact</a>
+            <nav className="w-full flex justify-center md:justify-start items-center space-x-2 md:space-x-4 lg:space-x-28 mb-4 md:mb-8 text-gold">
+              <a href="#mission" className={fLinkStyle}>About </a>
+              <a href="#case_studies" className={fLinkStyle}>Case Studies</a>
+              <a href="#portfolio" className={fLinkStyle}>Portfolio</a>
+              <a href="mailto:contact@sccupliftinginc.com" className={fLinkStyle}>Contact</a>
             </nav>
             <dl className="grid grid-cols-3 justify-between w-full text-white text-xs md:text-sm">
-              <dt className="order-1">Phone</dt>
-              <dd className="order-2">(123)456-7890</dd>
-              <dt className="order-1">Email</dt>
-              <dd className="order-2">(123)456-7890</dd>
-              <dt className="order-1">Hours</dt>
-              <dd className="order-2">(123)456-7890</dd>
+              <dt className={fDtStyle}>Phone</dt>
+              <dd className={fDdStyle}>
+                <a href="tel:+18001234567890">[800] 123.456.7890</a>
+              </dd>
+              <dt className={fDtStyle}>Email</dt>
+              <dd className={fDdStyle}>
+                <a href="mailto:contact@sccupliftinginc.com">contact@sccuplifting.com</a>
+              </dd>
+              <dt className={fDtStyle}>Hours</dt>
+              <dd className={fDdStyle}>Mon &ndash; Fri 8a &ndash; 5p</dd>
             </dl>
           </div>
         </div>

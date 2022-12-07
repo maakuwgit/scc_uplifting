@@ -8,9 +8,23 @@ hr {
   margin-left: auto;
   margin-right: auto;
 }
+
+[data-touts] {
+  background: url(./vert_rule.png) 33% center no-repeat, 
+              url(./vert_rule.png) 66% center no-repeat;
+}
+
 [data-accordion] dt + dd {
   height: 0;
   overflow: hidden;
+}
+[data-accordion] dt:last-of-type,
+[data-accordion] dd:last-of-type {
+  border-bottom: none;
+}
+
+[data-accordion] dt.open svg {
+  transform: rotate(90deg);
 }
 
 [data-accordion] dt.open + dd {
