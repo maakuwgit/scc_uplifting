@@ -13,7 +13,7 @@ import constructionSite from './office-building-construction-site-with-room-for-
 import skyscraper from './office-building-skyscrapers-with-room-for-text-picjumbo-com.jpg'
 
 function App() {
-  const rowStyle    = "flex w-full py-16 px-24"
+  const rowStyle    = "flex flex-wrap h-auto py-8 md:py-16 px-4 md:px-12 xl:px-24"
   const slideStyle  = "rounded-lg bg-cover p-4"
 
   const makeHeading = (copy) => {
@@ -49,8 +49,8 @@ function App() {
           </svg>
           {title}
         </dt>
-        <dd className="border-b-2 border-black px-4 text-sm">
-          <span className="ml-12">{desc}</span>
+        <dd className="border-b md:border-b-2 border-black px-4 text-xs md:text-sm">
+          <span className="md:ml-12">{desc}</span>
         </dd>
       </>
     )
@@ -83,60 +83,60 @@ function App() {
 
   return (
     <main className="min-h-screen bg-neutral-850">
-      <header className="fixed top-0 left-0 z-50 w-full flex nowrap items-center justify-between px-24 py-4 bg-black">
-        <figure className="w-12 h-auto">
+      <header className="absolute lg:fixed px-4 sm:px-8 md:px-12 lg:px-18 xl:px-24 py-2 md:py-4 bg-black top-0 left-0 z-50 w-full flex nowrap items-center justify-between">
+        <figure className="w-6 md:w-8 lg:w-12 h-auto flex flex-nowrap items-center text-lg sm:text-2xl lg:text-3xl font-semibold">
           <img alt="" src={logo}/>
         </figure>
-        <nav className="flex nowrap space-x-8 text-white uppercase">
+        <nav className="hidden md:flex flex-nowrap space-x-2 md:space-x-4 lg:space-x-8 text-white uppercase">
           <a href="#about_us" className="p-2">Mission</a>
           <a href="#partners" className="p-2">Partners</a>
           <a href="#portfolio" className="p-2">Portfolio</a>
           <a href="#contact" className="p-2 rounded bg-gold leading-base">Contact Us</a>
         </nav>
       </header>
-      <article className={rowStyle + " min-h-screen relative items-center bg-black text-white bg-cover bg-fixed"}
+      <article className={"flex-wrap h-auto pb-8 md:pb-16 px-4 md:px-12 xl:px-24 md:min-h-screen relative items-center bg-black bg-cover bg-fixed bg-bottom bg-right pt-16 md:pt-24 text-white"}
        style={{backgroundImage: `url(${skyscraper})`}}>
         <div className="w-full lg:w-1/2 order-1">
-          <h1 className="mb-8 text-7xl mb-4 font-extrabold drop-shadow-md">Infrastructure Creates Opportunity</h1>
+          <h1 className="mb-2 md:mb-4 text-3xl md:text-4xl lg:text-7xl font-extrabold drop-shadow-md">Infrastructure Creates Opportunity</h1>
           <p className="w-3/4 lg:w-2/3 drop-shadow-sm">We believe in improving services and creating new streams of revenue to sustain our cities</p>
         </div>
       </article>
       <section id="about_us" className={rowStyle + ' min-h-screen'}>
-        <div className="w-1/2 order-2 p-16">
+        <div className="w-full md:w-1/2 order-1 md:order-2 px-4 md:p-8 lg:p-16">
           { makeEyebrow('About Us')}
           { makeHeading('This is How We Work.')}
           <p className="text-white">With over 20 years of experience in construction and development, we are one team, driven to uplift the community and make it better.</p>
-          <dl data-accordion className="text-white">
+          <dl data-accordion className="-mx-4 md:mx-auto text-white">
             { makeAccordion('Life-Long Performance','Lorem ipsum sin dolor amin set aqui lanis tet senim silla') }
             { makeAccordion('Professional Services','Lorem ipsum sin dolor amin set aqui lanis tet senim silla','#442920','#9C7D76') }
             { makeAccordion('Providing Guidance','Lorem ipsum sin dolor amin set aqui lanis tet senim silla','#1C2B4A','#5072B9') }
             { makeAccordion('Connecting Funding','Lorem ipsum sin dolor amin set aqui lanis tet senim silla','#3B3325','#7D6D51') }
           </dl>
         </div>
-        <picture className="w-1/2 order-1 mx-4 relative">
-          <div className="absolute top-0 left-0 right-0 bottom-0 z-20 bg-cover bg-center"
+        <picture className="w-full md:w-1/2 order-2 md:order-1 md:mx-4 relative mt-4 -mb-4 md:mt-auto md:mb-auto">
+          <div className="relative md:absolute top-0 left-0 right-0 bottom-0 z-20 bg-cover bg-center"
            style={{
             clipPath:'polygon(0 0,50% 0, 50% 50%, 100% 50%, 100% 100%, 0 100%)',
             backgroundImage: `url(${redWalls})`
           }}>
             <img alt="" src={redWalls} className="w-full h-auto invisible"/>
           </div>
-          <div className="absolute -top-5 -left-5 -right-5 -bottom-5 z-10 bg-neutral-900" style={{clipPath:'polygon(0 0, calc(50% + 20px) 0, calc(50% + 20px) calc(50% - 20px), 100% calc(50% - 20px), 100% 100%, 0 100%)'}}>
+          <div className="absolute -top-4 -left-4 -right-4 -bottom-4 -md:top-5 -md:left-5 -md:right-5 -md:bottom-5 z-10 bg-neutral-900" style={{clipPath:'polygon(0 0, calc(50% + 1.25rem) 0, calc(50% + 1.25rem) calc(50% - 1.25rem), 100% calc(50% - 1.25rem), 100% 100%, 0 100%)'}}>
           </div>
         </picture>
       </section>
-      <aside className={rowStyle + " align-center justify-center bg-cover bg-center bg-fixed"} style={{backgroundImage:`url(${constructionSite})`}}>
-        <div className="outline outline-16 outline-gold-1/3 bg-gold rounded-2xl p-16 text-center">
-          <h5 className="mb-4 text-6xl text-white">Get started with SCC Uplifting</h5>
-          <p className="text-lg text-neutral-900">Team Members are waiting to discuss your goals for the city</p>
+      <aside className={rowStyle + " align-center justify-center py-24 bg-cover bg-center bg-fixed"} style={{backgroundImage:`url(${constructionSite})`}}>
+        <div className="outline outline-4 md:outline-8 lg:outline-16 outline-gold-1/3 bg-gold rounded-lg md:rounded-xl lg:rounded-2xl p-4 md:p-8 lg:p-16 text-center">
+          <h5 className="mb-2 md:mb-4 text-3xl md:text-4xl lg:text-6xl font-extrabold text-white">Get started with SCC Uplifting</h5>
+          <p className="text-sm md:text-base lg:text-lg text-neutral-900">Team members are waiting to discuss your goals for the city</p>
         </div>
       </aside>
-      <section id="portfolio" className={rowStyle + " flex-wrap bg-neutral-900"}>
-        <div className="w-1/2">
+      <section id="portfolio" className={rowStyle + " w-full bg-neutral-900"}>
+        <div className="w-full md:w-1/2">
           { makeEyebrow('Our Portfolio')}
           { makeHeading('Our Recent Work')}
         </div>
-        <ol className="grid grid-cols-3 gap-4 min-w-full -mx-4">
+        <ol className="grid md:grid-cols-3 gap-4 md:w-auto min-w-full -mx-4">
           <li data-slide className={slideStyle}>
             { makeSlide(redBuilding,"2021-10",'Fall 2021 - Spring 2022',"Dennis Brew Fire Station","Lorem ipsum sin dolor amin set aqui lanis tet senim silla")}
           </li>
@@ -149,7 +149,7 @@ function App() {
         </ol>
       </section>
       <aside id="partners" className={rowStyle + ' bg-neutral-950'}>
-        <dl className="grid grid-cols-4 grid-gap-12 w-full relative">
+        <dl className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full relative">
           <dt className="sr-only">AMERICAN TOWER</dt>
           <dd>
             <img alt="AMERICAN TOWER" src={fpoSlide1}/>
@@ -169,34 +169,34 @@ function App() {
         </dl>
       </aside>
       <section id="contact" className={rowStyle}>
-        <picture className="w-1/2 order-1 mx-4 relative">
-          <div className="absolute top-0 left-0 right-0 bottom-0 z-20 bg-cover bg-center" 
+        <picture className="w-full md:w-1/2 order-2 md:order-1 md:mx-4 relative mt-8 -mb-4 md:mb-auto md:mt-auto">
+          <div className="relative md:absolute top-0 left-0 right-0 bottom-0 z-20 bg-cover bg-center" 
            style={{
             clipPath:'polygon(0 50%,50% 50%,50% 0, 100% 0, 100% 100%, 0 100%)', 
             backgroundImage: `url(${doorway})`
           }}>
             <img alt="" src={doorway} className="w-full h-auto invisible"/>
           </div>
-          <div className="absolute -top-5 -left-5 -right-5 -bottom-5 z-10 bg-neutral-900" style={{clipPath:'polygon(0 calc(50% - 20px), calc(50% - 20px) calc(50% - 20px), calc(50% - 20px) 0, 100% 0, 100% 100%, 0 100%)'}}>
+          <div className="absolute -top-4 -left-4 -right-4 -bottom-4 -md:top-5 -md:left-5 -md:right-5 -md:bottom-5 z-10 bg-neutral-900" style={{clipPath:'polygon(0 calc(50% - 20px), calc(50% - 20px) calc(50% - 20px), calc(50% - 20px) 0, 100% 0, 100% 100%, 0 100%)'}}>
           </div>
         </picture>
-        <div className="w-1/2 text-white">
+        <div className="w-full md:w-1/2 order-1 md:order-2 text-white">
           { makeEyebrow('Contact Us')}
           { makeHeading('Talking to Us is Easy.')}
-          <p className="w-4/5 mb-16">You can speak to a member of our team who will talk with you about the goals for your city, and we will work with you to see which one of our financing platforms best suits your needs.</p>
-          <h3 className="mb-4 text-2xl font-bold">We offer flexible plans.</h3>
-          <p className="w-4/5 mb-16">Most do not have to make a payment until two years after project completion. We will also work with you to improve revenue during those two years to make repayment easy.</p>
-          <div className="grid grid-cols-2 gap-x-8 w-3/4">
+          <p className="w-full md:w-4/5 mb-4 md:mb-16">You can speak to a member of our team who will talk with you about the goals for your city, and we will work with you to see which one of our financing platforms best suits your needs.</p>
+          <h3 className="mb-4 text-xl md:text-2xl font-bold">We offer flexible plans.</h3>
+          <p className="w-full md:w-4/5 mb-4 md:mb-16">Most do not have to make a payment until two years after project completion. We will also work with you to improve revenue during those two years to make repayment easy.</p>
+          <div className="grid gap-4 md:grid-cols-2 md:gap-8 w-full md:w-3/4">
             { makeContact('Call',"+18001234567890","800.123.456.7890", "Call Now")}
             { makeContact('Email',"mailto:blackhole@sccuplifting.com","sccuplifting.com", "Message Now")}
           </div>
         </div>
       </section>
-      <footer className={rowStyle + " flex-wrap bg-black py-8"}>
-        <div className="flex items-center justify-between w-full">
-          <figure className="w-48 h-auto text-gold-1/2">
-            <img alt="" src={logo_h}/>
-            <figcaption className="text-md text-gold-1/2">Pillars of the Community</figcaption>
+      <footer className={rowStyle + " flex-wrap bg-black py-4 md:py-8"}>
+        <div className="flex flex-wrap md:flex-nowrap items-center justify-between w-full  space-y-2">
+          <figure className="flex md:flex-col items-center justify-center mx-auto w-auto md:w-full md:w-48 h-auto text-gold-1/2">
+            <img alt="" src={logo_h} className="w-40 md:w-auto"/>
+            <figcaption className="ml-4 md:ml-8 lg:ml-auto md:text-md text-gold-1/2 leading-tight">Pillars of the Community</figcaption>
           </figure>
           <p className="ml-auto text-sm text-right text-neutral-850">&copy;2022 State County City Uplifting, All rights reserved</p>
         </div>
