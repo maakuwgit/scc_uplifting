@@ -13,7 +13,7 @@ import constructionSite from './office-building-construction-site-with-room-for-
 import skyscraper from './office-building-skyscrapers-with-room-for-text-picjumbo-com.jpg'
 
 function App() {
-  const rowStyle    = "flex flex-wrap h-auto py-8 md:py-16 px-4 md:px-12 xl:px-24"
+  const rowStyle    = "flex flex-wrap md:flex-nowrap w-full h-auto py-8 md:py-16 px-4 md:px-12 xl:px-24"
   const slideStyle  = "rounded-lg bg-cover p-4"
 
   const makeHeading = (copy) => {
@@ -94,7 +94,7 @@ function App() {
           <a href="#contact" className="p-2 rounded bg-gold leading-base">Contact Us</a>
         </nav>
       </header>
-      <article className={"flex-wrap h-auto pb-8 md:pb-16 px-4 md:px-12 xl:px-24 md:min-h-screen relative items-center bg-black bg-cover bg-fixed bg-bottom bg-right pt-16 md:pt-24 text-white"}
+      <article className="flex flex-wrap h-auto pb-8 md:pb-16 px-4 md:px-12 xl:px-24 md:min-h-screen relative items-center bg-black bg-cover bg-fixed bg-bottom bg-right pt-16 md:pt-24 text-white"
        style={{backgroundImage: `url(${skyscraper})`}}>
         <div className="w-full lg:w-1/2 order-1">
           <h1 className="mb-2 md:mb-4 text-3xl md:text-4xl lg:text-7xl font-extrabold drop-shadow-md">Infrastructure Creates Opportunity</h1>
@@ -131,7 +131,7 @@ function App() {
           <p className="text-sm md:text-base lg:text-lg text-neutral-900">Team members are waiting to discuss your goals for the city</p>
         </div>
       </aside>
-      <section id="portfolio" className={rowStyle + " w-full bg-neutral-900"}>
+      <section id="portfolio" className={rowStyle + " md:flex-col bg-neutral-900"}>
         <div className="w-full md:w-1/2">
           { makeEyebrow('Our Portfolio')}
           { makeHeading('Our Recent Work')}
@@ -169,7 +169,7 @@ function App() {
         </dl>
       </aside>
       <section id="contact" className={rowStyle}>
-        <picture className="w-full md:w-1/2 order-2 md:order-1 md:mx-4 relative mt-8 -mb-4 md:mb-auto md:mt-auto">
+        <picture className="w-full md:w-1/2 order-2 md:mx-4 relative mt-8 -mb-4 md:mb-auto md:mt-auto">
           <div className="relative md:absolute top-0 left-0 right-0 bottom-0 z-20 bg-cover bg-center" 
            style={{
             clipPath:'polygon(0 50%,50% 50%,50% 0, 100% 0, 100% 100%, 0 100%)', 
@@ -180,7 +180,7 @@ function App() {
           <div className="absolute -top-4 -left-4 -right-4 -bottom-4 -md:top-5 -md:left-5 -md:right-5 -md:bottom-5 z-10 bg-neutral-900" style={{clipPath:'polygon(0 calc(50% - 20px), calc(50% - 20px) calc(50% - 20px), calc(50% - 20px) 0, 100% 0, 100% 100%, 0 100%)'}}>
           </div>
         </picture>
-        <div className="w-full md:w-1/2 order-1 md:order-2 text-white">
+        <div className="w-full md:w-1/2 order-1 text-white">
           { makeEyebrow('Contact Us')}
           { makeHeading('Talking to Us is Easy.')}
           <p className="w-full md:w-4/5 mb-4 md:mb-16">You can speak to a member of our team who will talk with you about the goals for your city, and we will work with you to see which one of our financing platforms best suits your needs.</p>
@@ -193,10 +193,10 @@ function App() {
         </div>
       </section>
       <footer className={rowStyle + " flex-wrap bg-black py-4 md:py-8"}>
-        <div className="flex flex-wrap md:flex-nowrap items-center justify-between w-full  space-y-2">
-          <figure className="flex md:flex-col items-center justify-center mx-auto w-auto md:w-full md:w-48 h-auto text-gold-1/2">
+        <div className="flex flex-wrap md:flex-nowrap items-center justify-between w-full space-y-2">
+          <figure className="flex md:flex-col items-center justify-center mx-auto md:ml-0 w-auto md:w-full md:w-48 h-auto text-gold-1/2">
             <img alt="" src={logo_h} className="w-40 md:w-auto"/>
-            <figcaption className="ml-4 md:ml-8 lg:ml-auto md:text-md text-gold-1/2 leading-tight">Pillars of the Community</figcaption>
+            <figcaption className="ml-4 md:ml-8 lg:ml-0 lg:mr-auto md:text-md text-gold-1/2 leading-tight">Pillars of the Community</figcaption>
           </figure>
           <p className="ml-auto text-sm text-right text-neutral-850">&copy;2022 State County City Uplifting, All rights reserved</p>
         </div>
