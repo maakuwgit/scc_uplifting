@@ -113,7 +113,7 @@ function App() {
             { makeAccordion('Connecting Funding','Lorem ipsum sin dolor amin set aqui lanis tet senim silla','#3B3325','#7D6D51') }
           </dl>
         </div>
-        <picture className="w-full md:w-1/2 order-2 md:order-1 md:mx-4 relative mt-4 -mb-4 md:mt-auto md:mb-auto">
+        <picture className="w-full md:w-1/2 order-2 md:order-1 md:mx-4 relative mt-4 -mb-4 md:mt-0 md:mb-0">
           <div className="relative md:absolute top-0 left-0 right-0 bottom-0 z-20 bg-cover bg-center"
            style={{
             clipPath:'polygon(0 0,50% 0, 50% 50%, 100% 50%, 100% 100%, 0 100%)',
@@ -168,8 +168,8 @@ function App() {
           </dd>
         </dl>
       </aside>
-      <section id="contact" className={rowStyle}>
-        <picture className="w-full md:w-1/2 order-2 md:mx-4 relative mt-8 -mb-4 md:mb-auto md:mt-auto">
+      <section id="contact" className={rowStyle + ' min-h-screen'}>
+        <picture className="w-full md:w-1/2 order-2 md:mx-4 relative mt-8 -mb-4 md:mb-0 md:mt-0">
           <div className="relative md:absolute top-0 left-0 right-0 bottom-0 z-20 bg-cover bg-center" 
            style={{
             clipPath:'polygon(0 50%,50% 50%,50% 0, 100% 0, 100% 100%, 0 100%)', 
