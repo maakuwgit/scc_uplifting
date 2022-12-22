@@ -9,11 +9,6 @@ hr {
   margin-right: auto;
 }
 
-[data-touts] {
-  background: url(./vert_rule.png) 33% center no-repeat, 
-              url(./vert_rule.png) 66% center no-repeat;
-}
-
 [data-accordion] dt + dd {
   height: 0;
   overflow: hidden;
@@ -43,21 +38,21 @@ hr {
 }
 
 [data-cross]:after {
-  width: 6px;
-  height: 6px;
+  width: 0.3125rem;
+  height: 0.3125rem;
   background-color: white;
-  left: calc(50% - 3px);
-  top: calc(50% - 3px);
+  left: calc(50% - 0.1625rem);
+  bottom: calc(50% - 0.1625rem);
   border-radius:100%;
 }
 
 [data-cross]:before {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1rem;
+  height: 1rem;
   border: solid 1px white;
-  left: calc(50% - 0.75rem);
-  top: calc(50% - 0.75rem);
-  transform: rotate(45deg)
+  transform: rotate(45deg);
+  left: calc(50% - 0.5rem);
+  bottom: calc(50% - 0.5rem);
 }
 
 [data-cross] li {
@@ -68,17 +63,18 @@ hr {
 
 [data-cross] li:last-child, 
 [data-cross] li:nth-child(4n-1) {
+  border-top: 1px solid white;
   border-bottom:none;
 }
 
 [data-cross] li:last-child, 
 [data-cross] li:nth-child(3n-1) {
   border-right:none;
-  padding-left: 2rem;
-  padding-right: 0;
+  border-left: 1px solid white;
+  padding-left: 0.875rem;
 }
 
-[data-slide] img {
+[data-slide] figure {
   min-height: 50vw;
 }
 
@@ -87,14 +83,47 @@ hr {
 }
 
 @media only screen and (min-width:48em) {
+  [data-touts] {
+    background: url(./vert_rule.png) 33% center no-repeat, 
+                url(./vert_rule.png) 66% center no-repeat;
+  }
   [data-slide] figcaption *:not(h4):not(hr) {
     opacity:0;
   }
-  [data-slide] img {
+  [data-slide] figure {
     min-height: 66vh;
   }
   [data-slide]:hover figcaption * {
     opacity: 1;
+  }
+
+  [data-cross]:after,
+  [data-cross]:before {
+    bottom: unset;
+  }
+
+  [data-cross]:after {
+    width: 0.3125rem;
+    height: 0.3125rem;
+    left: calc(50% - 0.155125rem);
+    top: calc(50% - 0.155125rem);
+  }
+  
+  [data-cross]:before {
+    width: 1.5rem;
+    height: 1.5rem;
+    left: calc(50% - 0.75rem);
+    top: calc(50% - 0.75rem);
+  }
+  [data-cross] li:last-child, 
+  [data-cross] li:nth-child(3n-1) {
+    padding-left: 2rem;
+    padding-right: 0;
+  }
+
+  [data-cross] li:last-child, 
+  [data-cross] li:nth-child(4n-1) {
+    border-top: none;
   }
   [data-cross] li {
     min-height: 10vw;
